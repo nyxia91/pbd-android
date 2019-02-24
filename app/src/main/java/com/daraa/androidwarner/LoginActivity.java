@@ -3,7 +3,6 @@ package com.daraa.androidwarner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -21,7 +22,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,29 +38,30 @@ public class LoginActivity extends AppCompatActivity {
     private final static int RC_SIGN_IN = 123;
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth.AuthStateListener mAuthListner;
-
     @Override
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListner);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseApp.initializeApp(this);
+        super.onCreate(savedInstanceState);
+
         //check the current user
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
         setContentView(R.layout.activity_login);
-        inputEmail = findViewById(R.id.email);
-        inputPassword = findViewById(R.id.password);
-        Button login_button = findViewById(R.id.login_button);
-        progressBar = findViewById(R.id.progressBar);
-        TextView btnSignIn = findViewById(R.id.create_account);
-        button = findViewById(R.id.sign_in_google);
+
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputPassword = (EditText) findViewById(R.id.password);
+        Button login_button = (Button) findViewById(R.id.login_button);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        TextView btnSignIn = (TextView) findViewById(R.id.create_account);
+        button = (SignInButton) findViewById(R.id.sign_in_google);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,16 +82,11 @@ public class LoginActivity extends AppCompatActivity {
                 String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
                 if (TextUtils.isEmpty(email)) {
-                    Snackbar.make(findViewById(android.R.id.content), R.string.error_email_empty, Snackbar.LENGTH_LONG)
-                            .show();
-                    //Toast.makeText(getApplicationContext(), getString(R.string.error_email_empty), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please enter email id", Toast.LENGTH_SHORT).show();
                     return;
-
                 }
                 if (TextUtils.isEmpty(password)) {
-                    Snackbar.make(findViewById(android.R.id.content), R.string.error_password_empty, Snackbar.LENGTH_LONG)
-                            .show();
-                    //Toast.makeText(getApplicationContext(), getString(R.string.error_password_empty), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
@@ -122,7 +119,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("129701988550-qfgn6ok3mqldvips6stgtrad7gu3tukj.apps.googleusercontent.co")
+                .requestIdToken("129701988550-qfgn6ok3mqldvips6stgtrad7gu3tukj.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -134,21 +131,15 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d("TEST", "HELLO");
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            Log.d("TEST", "AAAA");
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                Log.d("TEST", "BBB");
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
-                Intent intent = new Intent(getApplicationContext(), SampleActivity.class);
-                startActivity(intent);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Log.d("TEST", e.toString());
-                e.printStackTrace();
                 Log.w(TAG, "Google sign in failed", e);
                 // ...
             }
@@ -168,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, getString(R.string.error_aut), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Aut Fail", Toast.LENGTH_SHORT).show();
                             //updateUI(null);
                         }
                         // ...

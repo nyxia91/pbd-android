@@ -22,7 +22,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:scaleType="fitCenter" />
-            <!--    android:src="@drawable/icon_afiat" />  -->
+            <!-- android:src="@drawable/images" /> -->
 
 
         <EditText
