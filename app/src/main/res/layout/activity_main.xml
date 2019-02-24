@@ -7,51 +7,7 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true"
-        >
-
-        <Button
-            android:id="@+id/alarm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alarm"
-            android:textAlignment="center"
-            />
-
-        <Button
-            android:id="@+id/sleep_timer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sleep Timer"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/battery_saver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Battery Saver"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/sleep_monitor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sleep Monitor"
-            android:textAlignment="center" />
-
-        <Button
-            android:id="@+id/safety_speed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Safety Speed"
-            android:textAlignment="center" />
-
-    </LinearLayout>
 
     <FrameLayout
     android:id="@+id/fragment_container"

@@ -1,42 +1,25 @@
 {
   "project_info": {
-<<<<<<< HEAD
+
     "project_number": "11101255434",
     "firebase_url": "https://pbdandroid-8a924.firebaseio.com",
     "project_id": "pbdandroid-8a924",
     "storage_bucket": "pbdandroid-8a924.appspot.com"
-=======
-    "project_number": "129701988550",
-    "firebase_url": "https://androidwarner-59fcd.firebaseio.com",
-    "project_id": "androidwarner-59fcd",
-    "storage_bucket": "androidwarner-59fcd.appspot.com"
->>>>>>> eaa406729d4022f64c6b4663d6b10e4a816d0302
+
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:11101255434:android:7add5cd697c1bde7",
-=======
+
         "mobilesdk_app_id": "1:129701988550:android:7add5cd697c1bde7",
->>>>>>> eaa406729d4022f64c6b4663d6b10e4a816d0302
+
         "android_client_info": {
           "package_name": "com.daraa.androidwarner"
         }
       },
       "oauth_client": [
         {
-<<<<<<< HEAD
-          "client_id": "11101255434-dm2ulodiaku94ltijplh66rq2as3ukvv.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.daraa.androidwarner",
-            "certificate_hash": "b9b7dde6faebbf26bed618884c4b5d180d6070ac"
-          }
-        },
-        {
-          "client_id": "11101255434-cs6a6fl2oijg6p7h2mi4jqod3fj4etop.apps.googleusercontent.com",
-=======
+
           "client_id": "129701988550-hlkc2s5f6h0r9sl99pdo9mbj7uvij813.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -98,17 +81,15 @@
         },
         {
           "client_id": "129701988550-qfgn6ok3mqldvips6stgtrad7gu3tukj.apps.googleusercontent.com",
->>>>>>> eaa406729d4022f64c6b4663d6b10e4a816d0302
+
           "client_type": 3
         }
       ],
       "api_key": [
         {
-<<<<<<< HEAD
-          "current_key": "AIzaSyCHRTQbUkTMYfBlPvT18pcCQ0dmgmma0fA"
-=======
+
           "current_key": "AIzaSyCUm6rxP6Rcb1q01oqkBSgx_baV69CXwys"
->>>>>>> eaa406729d4022f64c6b4663d6b10e4a816d0302
+
         }
       ],
       "services": {
@@ -119,11 +100,9 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-<<<<<<< HEAD
-              "client_id": "11101255434-cs6a6fl2oijg6p7h2mi4jqod3fj4etop.apps.googleusercontent.com",
-=======
+
               "client_id": "129701988550-qfgn6ok3mqldvips6stgtrad7gu3tukj.apps.googleusercontent.com",
->>>>>>> eaa406729d4022f64c6b4663d6b10e4a816d0302
+
               "client_type": 3
             }
           ]
