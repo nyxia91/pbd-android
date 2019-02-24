@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.daraa.androidwarner;
 
 import org.junit.Test;
 

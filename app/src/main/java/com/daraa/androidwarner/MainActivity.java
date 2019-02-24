@@ -1,4 +1,5 @@
-package com.example.myapplication;
+package com.daraa.androidwarner;
+
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,8 +15,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -40,7 +44,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
                     return true;
-            }
+                }
+
+
+
     };
 }
 

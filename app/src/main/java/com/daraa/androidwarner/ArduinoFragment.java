@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.daraa.androidwarner;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
