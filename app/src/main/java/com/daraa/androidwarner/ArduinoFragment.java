@@ -14,6 +14,6 @@ public class ArduinoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_arduino, container, false);
 
-        
+
     }
 }
