@@ -59,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+/*
+        Button battery_button = findViewById(R.id.battery_saver);
+        battery_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BatteryActivity.class);
+                startActivity(intent);
+            }
+        }); */
 
 
     }
