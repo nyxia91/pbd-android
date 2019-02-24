@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListner;
 
+
+    private static final String LOG_TAG =
+            MainActivity.class.getSimpleName();
+
     @Override
     public void onStart() {
         super.onStart();
@@ -87,5 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     };
+
+    public void launchAlarmActivity(View view) {
+        Intent intent = new Intent(this, AlarmActivity.class);
+        startActivity(intent);
+    }
 }
 

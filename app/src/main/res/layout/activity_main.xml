@@ -7,7 +7,15 @@
     tools:context=".MainActivity">
 
 
-
+    <Button
+        android:id="@+id/button_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_marginBottom="533dp"
+        android:padding="30dp"
+        android:text="@string/alarm"
+        android:onClick="launchAlarmActivity"/>
 
     <FrameLayout
     android:id="@+id/fragment_container"
