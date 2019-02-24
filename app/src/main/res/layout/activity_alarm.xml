@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AlarmActivity">
 
-    <!--<TextView-->
-        <!--android:id="@+id/textView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="TextView"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--tools:layout_editor_absoluteY="142dp" />-->
-
     <TimePicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,5 +15,24 @@
         android:id="@+id/timePicker"
         android:timePickerMode="clock"
         ></TimePicker>
+
+    <TextView
+        android:id="@+id/text_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time: "
+        android:layout_centerHorizontal="true"
+        android:textColor="#090"
+        android:textStyle="bold"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/button_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/timePicker"
+        android:text="@string/set_alarm" />
 
 </RelativeLayout>
