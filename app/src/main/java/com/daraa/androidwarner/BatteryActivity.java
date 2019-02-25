@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.SensorManager;
 import android.os.BatteryManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class BatteryActivity extends AppCompatActivity {
     private TextView mTextViewPercentage;
     private ProgressBar mProgressBar;
     private int mProgressStatus = 0;
+
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
 
         @Override
@@ -32,9 +34,25 @@ public class BatteryActivity extends AppCompatActivity {
             float percentage = level/ (float) scale;
             mProgressStatus = (int)((percentage)*100);
             mTextViewPercentage.setText("" + mProgressStatus + "%");
-            mTextViewInfo.setText(mTextViewInfo.getText() +
-                    "\nPercentage : "+ mProgressStatus + "%");
+            mTextViewInfo.setText(mTextViewInfo.getText() + "\nPercentage : "+ mProgressStatus + "%");
             mProgressBar.setProgress(mProgressStatus);
+
+            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+            boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL;
+            if(isCharging){
+                mTextViewInfo.setText(mTextViewInfo.getText() + "\nStatus : Charging");
+            }
+            else{
+                mTextViewInfo.setText(mTextViewInfo.getText() + "\nStatus : Disharging");
+            }
+/*
+            // How are we charging?
+             int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+             boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
+             boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
+*/
+
+
         }
     };
     @Override
@@ -44,9 +62,13 @@ public class BatteryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_battery);
         mContext = getApplicationContext();
         IntentFilter iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-        mContext.registerReceiver(mBroadcastReceiver,iFilter);
+        Intent batteryStatus = mContext.registerReceiver(mBroadcastReceiver,iFilter);
         mTextViewInfo = (TextView) findViewById(R.id.tv_info);
         mTextViewPercentage = (TextView) findViewById(R.id.tv_percentage);
         mProgressBar = (ProgressBar) findViewById(R.id.pb);
+
+
+
+
     }
 }

@@ -24,6 +24,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button alarm_button = view.findViewById(R.id.alarm);
+        alarm_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AlarmActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
