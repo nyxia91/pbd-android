@@ -2,6 +2,7 @@ package com.daraa.androidwarner;
 
 
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListner;
 
