@@ -33,6 +33,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button speed_button = view.findViewById(R.id.speed_warner);
+        speed_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LocationActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 }
