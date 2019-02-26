@@ -45,12 +45,9 @@ public class BatteryActivity extends AppCompatActivity {
             else{
                 mTextViewInfo.setText(mTextViewInfo.getText() + "\nStatus : Disharging");
             }
-/*
-            // How are we charging?
-             int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-             boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
-             boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
-*/
+            // Temperature
+            float temperature = (float)intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1)/10;
+            mTextViewInfo.setText(mTextViewInfo.getText() + "\nTemperature : "+temperature + " °C");
 
 
         }
