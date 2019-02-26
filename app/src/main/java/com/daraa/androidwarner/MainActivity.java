@@ -99,14 +99,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
 
-
-
     };
-/*
-    public void launchAlarmActivity(View view) {
-        Intent intent = new Intent(this, AlarmActivity.class);
-        startActivity(intent);
-    }
-*/
 }
 
