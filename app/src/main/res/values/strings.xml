@@ -22,6 +22,9 @@
     <string name="logout">Logout</string>
     <string name="failed">Failed to login </string>
     <string name="success">Login Successful</string>
+    <string name="alarm">Alarm</string>
+    <string name="label_alarm">Alarm Activity</string>
+    <string name="set_alarm">SET ALARM</string>
 
 
 </resources>

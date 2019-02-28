@@ -2,6 +2,7 @@ package com.daraa.androidwarner;
 
 
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -20,8 +21,13 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+
     FirebaseAuth mAuth;
     FirebaseAuth.AuthStateListener mAuthListner;
+
+
+    private static final String LOG_TAG =
+            MainActivity.class.getSimpleName();
 
     @Override
     public void onStart() {
@@ -55,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+/*
+        Button battery_button = findViewById(R.id.battery_saver);
+        battery_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BatteryActivity.class);
+                startActivity(intent);
+            }
+        }); */
 
 
     }
@@ -83,8 +98,6 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
                     return true;
                 }
-
-
 
     };
 }
