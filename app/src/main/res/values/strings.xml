@@ -25,6 +25,8 @@
     <string name="alarm">Alarm</string>
     <string name="label_alarm">Alarm Activity</string>
     <string name="set_alarm">SET ALARM</string>
+    <string name="selectTime_btn">SELECT TIME</string>
+    <string name="no_alarm_set">No Alarm Set</string>
 
 
 </resources>

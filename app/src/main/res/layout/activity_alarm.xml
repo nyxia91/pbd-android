@@ -6,33 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".AlarmActivity">
 
-    <TimePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:layout_marginTop="80dp"
-        android:id="@+id/timePicker"
-        android:timePickerMode="clock"
-        ></TimePicker>
+    <!--<TimePicker-->
+    <!--android:id="@+id/timePicker"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="100dp"-->
+    <!--android:padding="10dp"-->
+    <!--android:timePickerMode="clock"></TimePicker>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/text_alarm"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/current_time"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:text="Time: "-->
+    <!--android:textColor="#090"-->
+    <!--android:textSize="30dp"-->
+    <!--android:textStyle="bold" />-->
 
     <TextView
-        android:id="@+id/text_alarm"
+        android:id="@+id/time_set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time: "
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#090"
-        android:textStyle="bold"
-        android:textSize="50dp" />
+        android:layout_marginTop="133dp"
+        android:text="@string/no_alarm_set"
+        android:textSize="45sp" />
+
+    <EditText
+        android:id="@+id/in_time"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@id/setAlarm_btn"/>
 
     <Button
-        android:id="@+id/button_alarm"
+        android:id="@+id/btn_selectTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_alignBottom="@id/in_time"
+        android:layout_toEndOf="@id/in_time"
+        android:layout_toRightOf="@id/in_time"
+        android:text="@string/selectTime_btn"/>
+
+    <Button
+        android:id="@+id/setAlarm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/timePicker"
+        android:layout_centerVertical="true"
+        android:onClick="setTimer"
         android:text="@string/set_alarm" />
+
+    <Button
+        android:id="@+id/cancel_alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_below="@id/setAlarm_btn"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
